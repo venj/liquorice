@@ -1,6 +1,8 @@
 {{ partial "head.html" . }}
 {{ partial "header.html" . }}
 
+{{ $dateFormat := .Site.Params.DateForm }}
+
     <div class="container">
         <div class="row">
             <div class="sixteen columns">
@@ -8,7 +10,7 @@
                 <ul class="li-article-list">
                     {{ range .Data.Pages }}
                         <li>
-                            <time class="li-article-date">{{ .Date.Format "January, 2, 2006" }}</time>
+                            <time class="li-article-date">{{ .Date.Format $dateFormat }}</time>
                             <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                         </li>
                     {{ end }}
